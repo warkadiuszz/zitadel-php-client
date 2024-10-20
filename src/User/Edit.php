@@ -139,7 +139,7 @@ class Edit
 
     private function initProfileData(): void
     {
-        if (!$this->userChanges["profile"]) {
+        if (!isset($this->userChanges["profile"])) {
             $this->userChanges["profile"] = [];
         }
     }
