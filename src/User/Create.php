@@ -120,9 +120,9 @@ class Create
      * @param $email string Email address
      * @return void
      */
-    public function setEmail(string $email) {
+    public function setEmail(string $email, bool $isVerified = true) {
         $this->request["email"]["email"] = $email;
-        $this->request["email"]["isVerified"] = true;
+        $this->request["email"]["isVerified"] = $isVerified;
     }
 
     /**Set the phone number (optional). The phone number will be automatically marked as verified.
