@@ -173,10 +173,10 @@ class Create
     }
 
     /**Create the new user and sends the data to Zitadel
-     * @return void
+     * @return string created user ID
      * @throws Exception Returns an exception with an error code and a message if the communication with Zitadel fails
      */
-    public function create()
+    public function create(): string
     {
         $token = $this->settings["serviceUserToken"];
         $curl = curl_init();
@@ -200,5 +200,7 @@ class Create
             throw new Exception("Error-Code: " . $response->code . " Message: " . $response->message);
         }
         curl_close($curl);
+        
+        return $response->userId;
     }
 }
